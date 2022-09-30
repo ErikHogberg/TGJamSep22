@@ -2,27 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+// NOTE: Abstract class, cannot be added to game objects as component
+public abstract class Enemy : MonoBehaviour
 {
 
+    [HideInInspector]
     public float hp;
     public float currentHp;
     public float speed;
-    bool holdingScrap;
-    bool alive;
-    int scrapHoldingCap;
-    int reward;
-    // Start is called before the first frame update
-    void Start()
+    [Space]
+    public Animator animator;    
+    
+    protected bool holdingScrap;
+    protected bool HoldingScrap {
+        get{ return holdingScrap; }
+        set{
+            holdingScrap = value;
+            if(animator)
+                animator.SetBool("holdingScrap", true);
+        }
+    }
+
+    protected bool alive;
+    protected int scrapHoldingCap;
+    protected int reward;
+
+    public virtual void Start()
     {
         this.hp = this.currentHp;
-        this.holdingScrap = false;
+        this.HoldingScrap = false;
         if (this.currentHp > 0)
             this.alive = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (this.alive == true)
         {
@@ -34,6 +47,7 @@ public class Enemy : MonoBehaviour
             if (holdingScrap == false)
             {
                 //movetowards dragon
+                MoveTowardsDragon();
             }
            /* if (transform.position == dragon.position && this.holdingScrap == false)
             {
@@ -43,8 +57,17 @@ public class Enemy : MonoBehaviour
             if (this.holdingScrap == true)
             {
                 // movetowards exit
+                MoveTowardsExit();
             }
         }
        
+        if(Input.GetKeyDown("w")){
+            HoldingScrap = !HoldingScrap;
+            Debug.Log($"holding scrap: {holdingScrap}");
+        }
+
     }
+
+    public abstract void MoveTowardsDragon();
+    public abstract void MoveTowardsExit();
 }
