@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 693df0dbfb2c6984d8b85e176507efd4
-      internalID: 264029046
+      spriteID: 027e014e89b6a9648bbea3b1081f6522
+      internalID: 486365024
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca3468e4e74d2af4c8ed4cedab0ca9fe
-      internalID: -1641415452
+      spriteID: 2f909edd5019ce24ca8e2c0d7d0a9623
+      internalID: 437020468
       vertices: []
       indices: 
       edges: []
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2c1e1db67d778547ab405c741de1053
-      internalID: -1049557616
+      spriteID: 53e269e8a3feff24d8170280a0324215
+      internalID: -690675312
       vertices: []
       indices: 
       edges: []
@@ -193,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a08840e7753f934998bbdd0f0e18bf7
-      internalID: -1855224379
+      spriteID: 928f1af3198eb2b4fa97fd3624658e6f
+      internalID: 355657245
       vertices: []
       indices: 
       edges: []
@@ -214,8 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45f4cb5f5ce57de4ea6a24814cef32ee
-      internalID: 731592451
+      spriteID: 62a5f97f2a6a69b409f01cfae0fa4831
+      internalID: 1614594770
       vertices: []
       indices: 
       edges: []
@@ -235,8 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 713bc6675336c5e4f8d6c60ed45c79f1
-      internalID: -552224200
+      spriteID: a40296bea3fdbd74a9d2bb42fc910953
+      internalID: -597070123
       vertices: []
       indices: 
       edges: []
@@ -256,8 +256,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9c8efd50bcc0de47bb03eed99d9f648
-      internalID: -1327013207
+      spriteID: 4ead7685e5adb624fbd9c8eb65bca451
+      internalID: 1180070927
       vertices: []
       indices: 
       edges: []
@@ -277,8 +277,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7affaba8c965497499400af230edce1f
-      internalID: 1926918329
+      spriteID: 5ce0e28c1978cd443b4605ffa3f45a20
+      internalID: -32257347
       vertices: []
       indices: 
       edges: []
@@ -298,8 +298,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a739903242215e4685bc205705b6232
-      internalID: -1120960666
+      spriteID: e1a9b04fa2bda364da564f404ac1c95f
+      internalID: -179016967
       vertices: []
       indices: 
       edges: []
@@ -319,8 +319,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7947621923eab054a887f7d21caa7f3b
-      internalID: -2031924670
+      spriteID: 3d1d2beeefc4e0841987975367811d2f
+      internalID: -938587486
       vertices: []
       indices: 
       edges: []
@@ -336,16 +336,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      electric_turret_animation_16-Sheet_8: -1120960666
-      electric_turret_animation_16-Sheet_1: -1641415452
-      electric_turret_animation_16-Sheet_2: -1049557616
-      electric_turret_animation_16-Sheet_0: 264029046
-      electric_turret_animation_16-Sheet_5: -552224200
-      electric_turret_animation_16-Sheet_3: -1855224379
-      electric_turret_animation_16-Sheet_4: 731592451
-      electric_turret_animation_16-Sheet_7: 1926918329
-      electric_turret_animation_16-Sheet_9: -2031924670
-      electric_turret_animation_16-Sheet_6: -1327013207
+      electric_turret_animation_16-Sheet_8: -179016967
+      electric_turret_animation_16-Sheet_1: 437020468
+      electric_turret_animation_16-Sheet_2: -690675312
+      electric_turret_animation_16-Sheet_0: 486365024
+      electric_turret_animation_16-Sheet_5: -597070123
+      electric_turret_animation_16-Sheet_3: 355657245
+      electric_turret_animation_16-Sheet_4: 1614594770
+      electric_turret_animation_16-Sheet_7: -32257347
+      electric_turret_animation_16-Sheet_9: -938587486
+      electric_turret_animation_16-Sheet_6: 1180070927
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
