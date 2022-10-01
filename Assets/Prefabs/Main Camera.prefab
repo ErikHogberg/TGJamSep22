@@ -526,7 +526,7 @@ MonoBehaviour:
   BasisObject: {fileID: 2643232385994161949}
   cam: {fileID: 2643232385976898249}
   isActive: 0
-  freezeTowerPrefab: {fileID: 0}
+  freezeTowerPrefab: {fileID: 8610541305110054440, guid: bd090484b8841124fa1bc23da51b69a5, type: 3}
   towerOffset: {x: 0, y: 0, z: 0}
   towerOffY: 0.8
   towerOffX: -0.2
