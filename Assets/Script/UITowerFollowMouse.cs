@@ -20,6 +20,13 @@ public class UITowerFollowMouse : MonoBehaviour
     public int resources;
     public int towerCost = 1;
     public TMP_Text scrapsText;
+
+    public bool canPlace;
+    public Image movingObjectImage;
+    private void Start()
+    {
+        
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && towerCost <= resources)
@@ -30,10 +37,24 @@ public class UITowerFollowMouse : MonoBehaviour
         MoveObject();
 
         SpawnTower();
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            canPlace = !canPlace;
+        }
     }
 
     public void MoveObject()
     {
+        if (canPlace)
+        {
+            MovingObject.GetComponent<Image>().color = new Color32(127, 161, 231, 255);
+        }
+        if (!canPlace)
+        {
+            MovingObject.GetComponent<Image>().color = new Color32(6, 45, 250, 255);
+        }
+
         Vector3 pos = Input.mousePosition + offset;
         pos.z = BasisObject.position.z;
         MovingObject.position = cam.ScreenToWorldPoint(pos);
