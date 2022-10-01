@@ -59,6 +59,7 @@ public abstract class Enemy : MonoBehaviour
                 {
                     alivecheck();
                     Debug.Log(hit.collider.name);
+                    ResourceManager.MainInstance.Score += 10;
                 }
             }
 

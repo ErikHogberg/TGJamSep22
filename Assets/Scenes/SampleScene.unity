@@ -290,13 +290,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9101096399760527094, guid: 3ea634b5ba50ddc45b0ca40feac6e111, type: 3}
+      propertyPath: m_LocalAABB.m_Center.x
+      value: -18.768742
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101096399760527094, guid: 3ea634b5ba50ddc45b0ca40feac6e111, type: 3}
       propertyPath: m_LocalAABB.m_Center.y
-      value: 0.13772076
+      value: 6.7604623
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101096399760527094, guid: 3ea634b5ba50ddc45b0ca40feac6e111, type: 3}
+      propertyPath: m_LocalAABB.m_Extent.x
+      value: 12.844183
       objectReference: {fileID: 0}
     - target: {fileID: 9101096399760527094, guid: 3ea634b5ba50ddc45b0ca40feac6e111, type: 3}
       propertyPath: m_LocalAABB.m_Extent.y
-      value: 0.483122
+      value: 11.706701
       objectReference: {fileID: 0}
+    - target: {fileID: 9101096399760527094, guid: 3ea634b5ba50ddc45b0ca40feac6e111, type: 3}
+      propertyPath: m_Sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 39bd2d9331774ea45b3bab9f09904c4f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ea634b5ba50ddc45b0ca40feac6e111, type: 3}
 --- !u!1001 &4479126152439241636
