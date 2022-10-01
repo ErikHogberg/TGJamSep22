@@ -11,7 +11,10 @@ public abstract class Enemy : MonoBehaviour
     public float currentHp;
     public float speed;
     [Space]
-    public Animator animator;
+    //public Animator animator;
+    public GameObject treasurePrefab;
+
+    public GameObject dragon;
 
     protected bool holdingScrap;
     protected bool HoldingScrap
@@ -20,8 +23,8 @@ public abstract class Enemy : MonoBehaviour
         set
         {
             holdingScrap = value;
-            if (animator)
-                animator.SetBool("holdingScrap", true);
+            //if (animator)
+            //    animator.SetBool("holdingScrap", true);
         }
     }
 
@@ -35,6 +38,8 @@ public abstract class Enemy : MonoBehaviour
         this.HoldingScrap = false;
         if (this.currentHp > 0)
             this.alive = true;
+
+        dragon = GameObject.Find("Dragon");
     }
 
     public virtual void Update()
@@ -82,6 +87,7 @@ public abstract class Enemy : MonoBehaviour
        if(!this.alive)
         {
             Dragon.MainInstance.scrap += this.reward;
+            Instantiate(treasurePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
