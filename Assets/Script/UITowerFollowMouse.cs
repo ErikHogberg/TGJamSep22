@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class UITowerFollowMouse : MonoBehaviour
 {
     public RectTransform MovingObject;
@@ -16,15 +16,20 @@ public class UITowerFollowMouse : MonoBehaviour
     public Vector3 towerOffset;
     public float towerOffY;
     public float towerOffX;
-    // Update is called once per frame
+
+    public int resources;
+    public int towerCost = 1;
+    public TMP_Text scrapsText;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && towerCost <= resources)
         {
             ToggleActive();
         }
-
+        scrapsText.text = resources.ToString();
         MoveObject();
+
+        SpawnTower();
     }
 
     public void MoveObject()
@@ -46,12 +51,25 @@ public class UITowerFollowMouse : MonoBehaviour
             MovingObject.gameObject.SetActive(false);
             isActive = false;
 
+            //Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            //mousePos.z = 0;
+            //mousePos.x += towerOffX;
+            //mousePos.y += towerOffY;
+            //Instantiate(freezeTowerPrefab, mousePos, Quaternion.identity);
+
+        }
+    }
+
+    public void SpawnTower()
+    {
+        if (!isActive && Input.GetKeyDown(KeyCode.Q) && towerCost <= resources)
+        {
             Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
             mousePos.x += towerOffX;
             mousePos.y += towerOffY;
             Instantiate(freezeTowerPrefab, mousePos, Quaternion.identity);
-
+            resources--;
         }
     }
 }

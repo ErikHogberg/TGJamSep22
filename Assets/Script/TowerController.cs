@@ -8,7 +8,6 @@ public class TowerController : MonoBehaviour
 
     public GameObject freezeTowerPrefab;
 
-    bool dragging = false;
 
     void Start()
     {

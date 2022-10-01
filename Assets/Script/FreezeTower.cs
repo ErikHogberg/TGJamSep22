@@ -30,8 +30,6 @@ public class FreezeTower : MonoBehaviour
 
             StartCoroutine(StartCountdown(freezeTime, enemySpeed));
 
-
-
         }
     }
 
