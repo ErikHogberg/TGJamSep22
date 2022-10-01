@@ -18,7 +18,6 @@ public class Drake : MonoBehaviour
     Vector2 point = Vector3.zero;
     Vector2 mousePos = Vector2.zero;
 
-    // Start is called before the first frame update
     private void Start()
     {
         head = gameObject;
