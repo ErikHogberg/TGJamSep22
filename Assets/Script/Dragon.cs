@@ -9,6 +9,8 @@ public class Dragon : MonoBehaviour
     public float spellRadius = 1f;
     public float spellDamage = 1f;
     public float scrap = 10;
+
+    public GameObject enemy;
     private void Awake()
     {
         MainInstance = this;
@@ -38,7 +40,12 @@ public class Dragon : MonoBehaviour
 
             if (hitCount > 0)
                 Debug.Log("Done Listing hits");
+        }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Instantiate(enemy, worldPoint, Quaternion.identity);
         }
     }
     void powerUp()

@@ -30,19 +30,23 @@ public class LaneKeepingEnemy : Enemy
 
     public override void MoveTowardsDragon()
     {
-        FollowLane();
+        //FollowLane();
+        transform.position += (dragon.transform.position - transform.position).normalized * speed * Time.deltaTime;
     }
 
     public override void MoveTowardsExit()
     {
-        FollowLane();
+        //FollowLane();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!holdingScrap && other.CompareTag("Hoard"))
+        Debug.Log("Trigger");
+        if (collision.CompareTag("Hoard"))
         {
-            holdingScrap = true;
+            //holdingScrap = true;
+            Debug.Log("Yes");
+            Destroy(collision.gameObject);
         }
     }
 }
