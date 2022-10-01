@@ -246,9 +246,52 @@ PrefabInstance:
       propertyPath: freezeTowerPrefab
       value: 
       objectReference: {fileID: 8610541305110054440, guid: bd090484b8841124fa1bc23da51b69a5, type: 3}
+    - target: {fileID: 2643232385976898247, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
+      propertyPath: movingObjectImage
+      value: 
+      objectReference: {fileID: 1993896411}
     - target: {fileID: 2643232385976898251, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2643232386088547761, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643232386088547761, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d69fd5563a87fb1488f386adba2f094f, type: 3}
+    - target: {fileID: 2643232386088547761, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643232386088547761, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
+      propertyPath: m_FillOrigin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643232386088547761, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
+      propertyPath: m_FillClockwise
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643232386088547761, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643232386088547761, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
+--- !u!114 &1993896411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2643232385492562652, guid: e1c230945be6cba4cbd78419849a7db8, type: 3}
+  m_PrefabInstance: {fileID: 1788190940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

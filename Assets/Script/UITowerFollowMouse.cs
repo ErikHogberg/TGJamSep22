@@ -25,7 +25,7 @@ public class UITowerFollowMouse : MonoBehaviour
     public Image movingObjectImage;
     private void Start()
     {
-        
+
     }
     void Update()
     {
@@ -48,7 +48,7 @@ public class UITowerFollowMouse : MonoBehaviour
     {
         if (canPlace)
         {
-            MovingObject.GetComponent<Image>().color = new Color32(127, 161, 231, 255);
+            MovingObject.GetComponent<Image>().color = new Color32(255, 190, 255, 255);
         }
         if (!canPlace)
         {
@@ -83,7 +83,7 @@ public class UITowerFollowMouse : MonoBehaviour
 
     public void SpawnTower()
     {
-        if (!isActive && Input.GetKeyDown(KeyCode.Q) && towerCost <= resources)
+        if (!isActive && Input.GetKeyDown(KeyCode.Q) && towerCost <= resources && canPlace)
         {
             Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;

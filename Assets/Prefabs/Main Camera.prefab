@@ -533,6 +533,8 @@ MonoBehaviour:
   resources: 3
   towerCost: 1
   scrapsText: {fileID: 2643232386390822767}
+  canPlace: 1
+  movingObjectImage: {fileID: 2643232385492562652}
 --- !u!1 &2643232385994161948
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d69fd5563a87fb1488f386adba2f094f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
