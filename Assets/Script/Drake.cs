@@ -15,8 +15,8 @@ public class Drake : MonoBehaviour
     [Range(0.1f, 50f)] public float multiplier = 1f;
 
     private Camera cam;
-    Vector2 point = new Vector3();
-    Vector2 mousePos = new Vector2();
+    Vector2 point = Vector3.zero;
+    Vector2 mousePos = Vector2.zero;
 
     // Start is called before the first frame update
     private void Start()
@@ -26,7 +26,7 @@ public class Drake : MonoBehaviour
         //bodies = new List<GameObject>();
         cam = Camera.main;
 
-        neck.transform.position = new Vector2(0, 0);
+        neck.transform.position = Vector2.zero;
     }
 
     private void Update()
