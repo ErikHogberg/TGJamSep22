@@ -9,16 +9,6 @@ public class FreezeTower : MonoBehaviour
     public bool isFreezing = false;
     public float freezedSpeed = 0f;
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.F))
-    //    {
-    //        float enemySpeed = 2f;
-    //        Debug.Log("Starting freeze");
-    //        StartCoroutine(StartCountdown(freezeTime, enemySpeed));
-
-    //    }
-    //}
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject targetHit = collision.gameObject;
