@@ -4,15 +4,15 @@ using UnityEngine;
 public class FastEnemy : Enemy
 {
     float fastSpeed;
-    GameObject treasure;
+    public GameObject treasure;
     Vector2 startPos;
     public Animator animator;
     //speed = 2*reuglar enemy speed
     public override void Start()
     {
         Debug.Log("Here");
-        fastSpeed = speed * 2f;
-        treasure = GameObject.FindGameObjectWithTag("Hoard");
+        fastSpeed = speed * 4f;
+        //treasure = GameObject.FindGameObjectWithTag("Hoard");
         HoldingScrap = false; 
         alive = true;
         startPos = transform.position;
@@ -20,7 +20,12 @@ public class FastEnemy : Enemy
   
     void MoveTowardsTreasure()
     {
-        transform.position += (treasure.transform.position - transform.position).normalized * fastSpeed * Time.deltaTime;
+        if(treasure != null)
+            transform.position += (treasure.transform.position - transform.position).normalized * fastSpeed * Time.deltaTime;
+        else
+        {
+            transform.position += (Dragon.MainInstance.transform.position - transform.position).normalized * speed * Time.deltaTime;
+        }
     }
     //   void FollowLane()
     // {

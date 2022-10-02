@@ -30,6 +30,8 @@ public class Treasure : MonoBehaviour
         GameObject newEnemy = Instantiate(FastEnemy, new Vector2(40.0f, Random.Range(-10f, 10f)), Quaternion.identity);
         newEnemy.GetComponent<FastEnemy>().currentHp = 5;
         newEnemy.GetComponent<FastEnemy>().hp = 5;
+        newEnemy.GetComponent<FastEnemy>().treasure = this.gameObject;
+
     }
 }
 
