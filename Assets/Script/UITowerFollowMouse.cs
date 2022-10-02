@@ -24,7 +24,8 @@ public class UITowerFollowMouse : MonoBehaviour
     public bool canPlace;
     public Image movingObjectImage;
 
-
+    public float minDis = 5f;
+    public float maxDis = 10f;
     private void Start()
     {
 
@@ -33,7 +34,21 @@ public class UITowerFollowMouse : MonoBehaviour
     {
         foreach(LanePoints instances in LanePoints.instances)
         {
+            Vector3 pos = Input.mousePosition + offset;
+            pos.z = BasisObject.position.z;
+            pos = cam.ScreenToWorldPoint(pos);
 
+            Vector3 ClosestPoint = instances.edgeCollider.ClosestPoint(pos);
+            float distance = Vector3.Distance(pos, ClosestPoint);
+            
+            if (distance > minDis && distance < maxDis)
+            {
+                canPlace = true;
+            }
+            else
+            {
+                canPlace = false;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && towerCost <= resources)
