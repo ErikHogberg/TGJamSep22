@@ -34,7 +34,17 @@ public class LanePointsEditor : Editor
 
 public class LanePoints : MonoBehaviour
 {
+    public static List<LanePoints> instances = new();
     public List<Vector2> points;
+
+    private void Awake()
+    {
+        instances.Add(this);
+    }
+    private void OnDestroy()
+    {
+        instances.Remove(this);
+    }
 
     private void OnDrawGizmos()
     {

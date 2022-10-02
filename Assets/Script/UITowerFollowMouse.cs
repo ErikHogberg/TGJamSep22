@@ -23,12 +23,19 @@ public class UITowerFollowMouse : MonoBehaviour
 
     public bool canPlace;
     public Image movingObjectImage;
+
+
     private void Start()
     {
 
     }
     void Update()
     {
+        foreach(LanePoints instances in LanePoints.instances)
+        {
+
+        }
+
         if (Input.GetKeyDown(KeyCode.Q) && towerCost <= resources)
         {
             ToggleActive();
