@@ -25,6 +25,7 @@ public class LanePointsEditor : Editor
 
             if (EditorGUI.EndChangeCheck())
             {
+                lanePoints.RefreshPoints();
                 EditorUtility.SetDirty(lanePoints);
             }
         }
@@ -32,9 +33,23 @@ public class LanePointsEditor : Editor
 }
 #endif
 
+[RequireComponent(typeof(EdgeCollider2D))]
 public class LanePoints : MonoBehaviour
 {
     public List<Vector2> points;
+    public EdgeCollider2D edgeCollider;
+
+    private void Start()
+    {
+        RefreshPoints();
+    }
+
+    public void RefreshPoints()
+    {
+        if (!edgeCollider) edgeCollider = GetComponent<EdgeCollider2D>();
+        if (!edgeCollider) edgeCollider = gameObject.AddComponent<EdgeCollider2D>();
+        edgeCollider.points = points.ToArray();
+    }
 
     private void OnDrawGizmos()
     {
