@@ -36,6 +36,7 @@ public class LanePointsEditor : Editor
 [RequireComponent(typeof(EdgeCollider2D))]
 public class LanePoints : MonoBehaviour
 {
+    public static List<LanePoints> instances = new();
     public List<Vector2> points;
     public EdgeCollider2D edgeCollider;
 
@@ -49,6 +50,15 @@ public class LanePoints : MonoBehaviour
         if (!edgeCollider) edgeCollider = GetComponent<EdgeCollider2D>();
         if (!edgeCollider) edgeCollider = gameObject.AddComponent<EdgeCollider2D>();
         edgeCollider.points = points.ToArray();
+    }
+
+    private void Awake()
+    {
+        instances.Add(this);
+    }
+    private void OnDestroy()
+    {
+        instances.Remove(this);
     }
 
     private void OnDrawGizmos()
