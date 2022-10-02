@@ -14,8 +14,6 @@ public abstract class Enemy : MonoBehaviour
     //public Animator animator;
     public GameObject treasurePrefab;
 
-    public GameObject dragon;
-
     protected bool holdingScrap;
     protected bool HoldingScrap
     {
@@ -39,14 +37,15 @@ public abstract class Enemy : MonoBehaviour
         if (this.currentHp > 0)
             this.alive = true;
 
-        dragon = GameObject.Find("Dragon");
+        // dragon = GameObject.Find("Dragon");
+        // dragon = Dragon.MainInstance.gameObject;
     }
 
     public virtual void Update()
     {
         if (this.alive == true)
         {
-            
+
             // Get mouse position if  enemy gets hit
             if (Input.GetMouseButtonDown(0))
             {
@@ -68,26 +67,28 @@ public abstract class Enemy : MonoBehaviour
             {
                 MoveTowardsDragon();
             }
-            if (transform.position == Dragon.MainInstance.transform.position && this.holdingScrap == false)
-            {
-                this.holdingScrap = true;
-                this.reward += this.scrapHoldingCap;
-            }
+            // if (transform.position == Dragon.MainInstance.transform.position && this.holdingScrap == false)
+            // {
+            //     this.holdingScrap = true;
+            //     this.reward += this.scrapHoldingCap;
+            // }
             if (this.holdingScrap == true)
             {
                 MoveTowardsExit();
             }
         }
 
-        if (Input.GetKeyDown("w"))
+        if (Input.GetKeyDown(KeyCode.W)) // test button
         {
             HoldingScrap = !HoldingScrap;
             Debug.Log($"holding scrap: {holdingScrap}");
         }
-       if(!this.alive)
+
+        if (!this.alive)
         {
             Dragon.MainInstance.scrap += this.reward;
-            Instantiate(treasurePrefab, transform.position, Quaternion.identity);
+            if (treasurePrefab)
+                Instantiate(treasurePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
