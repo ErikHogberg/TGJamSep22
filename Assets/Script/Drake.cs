@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.Events;
 
 public class Drake : MonoBehaviour
 {
@@ -26,9 +27,17 @@ public class Drake : MonoBehaviour
     public float NeckRefDistance = 15;
     public float CloseNeckRefDistance = 2;
     public float MouseMax = 20f;
+    public float MouseMin = 1f;
+
+    [Space]
+    public UnityEvent<bool> IdleOnEvent;
+    public UnityEvent<bool> IdleOffEvent;
 
     [System.NonSerialized]
     private List<Vector2> neckPoints = new();
+
+    [System.NonSerialized]
+    bool wasIdle = false;
 
     private void Start()
     {
@@ -45,7 +54,11 @@ public class Drake : MonoBehaviour
         {
             neckPoints.Add(Vector2.zero);
         }
+
+        IdleOnEvent.Invoke(wasIdle);
+        IdleOffEvent.Invoke(!wasIdle);
     }
+
 
     private void Update()
     {
@@ -58,102 +71,63 @@ public class Drake : MonoBehaviour
 
         Vector3 originPosition = origin.transform.position;
         float mouseDistance = Vector2.Distance(point, originPosition);
-        if (mouseDistance > MouseMax)
-            point = originPosition + (new Vector3(point.x, point.y, originPosition.z) - originPosition).normalized * MouseMax;
-        float lerp = Mathf.Clamp01((mouseDistance - CloseNeckRefDistance) / (NeckRefDistance - CloseNeckRefDistance));
-        float neckLinkDistance = Mathf.Lerp(CloseMaxNeckLinkDistance, MaxNeckLinkDistance, lerp);
 
-        neckPoints[^1] = point;
+        bool isIdle = mouseDistance < MouseMin;
 
-        for (int i = neckPoints.Count - 1; i >= 0; i--)
+        if (wasIdle != isIdle)
         {
-            neckPoints[i] += NeckGravity * neckCurve.Evaluate((float)i / neckPoints.Count);
-            if (i < neckPoints.Count - 1 && Vector2.Distance(neckPoints[i], neckPoints[i + 1]) > neckLinkDistance)
-            {
-                neckPoints[i] = neckPoints[i + 1] + (neckPoints[i] - neckPoints[i + 1]).normalized * neckLinkDistance;
-            }
+            wasIdle = isIdle;
+            IdleOnEvent.Invoke(isIdle);
+            IdleOffEvent.Invoke(!isIdle);
         }
 
-        neckPoints[0] = originPosition;
-        for (int i = 0; i < neckPoints.Count; i++)
+        if (!isIdle)
         {
-            if (i > 0 && Vector2.Distance(neckPoints[i], neckPoints[i - 1]) > neckLinkDistance)
+            if (mouseDistance > MouseMax)
+                point = originPosition + (new Vector3(point.x, point.y, originPosition.z) - originPosition).normalized * MouseMax;
+
+            float lerp = Mathf.Clamp01((mouseDistance - CloseNeckRefDistance) / (NeckRefDistance - CloseNeckRefDistance));
+            float neckLinkDistance = Mathf.Lerp(CloseMaxNeckLinkDistance, MaxNeckLinkDistance, lerp);
+
+            neckPoints[^1] = point;
+
+            for (int i = neckPoints.Count - 1; i >= 0; i--)
             {
-                neckPoints[i] = neckPoints[i - 1] + (neckPoints[i] - neckPoints[i - 1]).normalized * neckLinkDistance;
+                neckPoints[i] += NeckGravity * neckCurve.Evaluate((float)i / neckPoints.Count);
+                if (i < neckPoints.Count - 1 && Vector2.Distance(neckPoints[i], neckPoints[i + 1]) > neckLinkDistance)
+                {
+                    neckPoints[i] = neckPoints[i + 1] + (neckPoints[i] - neckPoints[i + 1]).normalized * neckLinkDistance;
+                }
             }
+
+            neckPoints[0] = originPosition;
+            for (int i = 0; i < neckPoints.Count; i++)
+            {
+                if (i > 0 && Vector2.Distance(neckPoints[i], neckPoints[i - 1]) > neckLinkDistance)
+                {
+                    neckPoints[i] = neckPoints[i - 1] + (neckPoints[i] - neckPoints[i - 1]).normalized * neckLinkDistance;
+                }
+            }
+
+            neck.spline.Clear();
+
+            int offset = 0;
+            Vector2 lastValid = Vector2.zero;
+            for (int i = 0; i < neckPoints.Count; i++)
+            {
+                if (i > 0 && Vector2.Distance(neckPoints[i], lastValid) < .1f)
+                {
+                    offset++;
+                    continue;
+                }
+                lastValid = neckPoints[i];
+                neck.spline.InsertPointAt(i - offset, neckPoints[i]);
+                neck.spline.SetTangentMode(i - offset, ShapeTangentMode.Continuous);
+            }
+
+            head.transform.position = neckPoints[^1];
         }
 
-        neck.spline.Clear();
-
-        int offset = 0;
-        Vector2 lastValid = Vector2.zero;
-        for (int i = 0; i < neckPoints.Count; i++)
-        {
-            if (i > 0 && Vector2.Distance(neckPoints[i], lastValid) < .1f)
-            {
-                offset++;
-                continue;
-            }
-            lastValid = neckPoints[i];
-            neck.spline.InsertPointAt(i - offset, neckPoints[i]);
-            neck.spline.SetTangentMode(i - offset, ShapeTangentMode.Continuous);
-        }
-
-        head.transform.position = neckPoints[^1];
-
-
-        // neck.spline.InsertPointAt(0, origin.transform.position);
-        // neck.spline.SetTangentMode(0, ShapeTangentMode.Continuous);
-
-        // neck.spline.InsertPointAt(1, (origin.transform.position + head.transform.position) / 3 * 2);
-        // neck.spline.SetTangentMode(1, ShapeTangentMode.Continuous);
-
-        // neck.spline.InsertPointAt(2, (origin.transform.position + head.transform.position) / 3);
-        // neck.spline.SetTangentMode(2, ShapeTangentMode.Continuous);
-
-        // neck.spline.InsertPointAt(3, head.transform.position);
-        // neck.spline.SetTangentMode(3, ShapeTangentMode.Continuous);
-
-
-        // timer += Time.deltaTime * multiplier;
-
-        // if (timer > 1f)
-        //     timer -= 1f;
-
-        // neck.spline.SetLeftTangent(1, new Vector2(curve.Evaluate(timer), curve.Evaluate(timer)));
-        // neck.spline.SetRightTangent(1, new Vector2(-curve.Evaluate(timer), -curve.Evaluate(timer)));
-
-        // neck.spline.SetLeftTangent(2, new Vector2(-curve.Evaluate(timer), -curve.Evaluate(timer)));
-        // neck.spline.SetRightTangent(2, new Vector2(curve.Evaluate(timer), curve.Evaluate(timer)));
-
-        //Debug.Log(curve.Evaluate(timer));
-
-        //float distance = Vector2.Distance(head.transform.position, origin.transform.position);
-        //int parts = (int)(distance / maxDistance);
-
-        //if (parts > bodies.Count)
-        //{
-        //    while (bodies.Count < parts)
-        //    {
-        //        bodies.Add(Instantiate(body, origin.transform));
-        //    }   
-        //}
-
-        //else if (parts < bodies.Count)
-        //{
-        //    while(bodies.Count > parts)
-        //    {
-        //        Destroy(bodies[bodies.Count - 1]);
-        //        bodies.Remove(bodies[bodies.Count - 1]);
-        //    }
-        //}
-
-        //for (int i = 0; i < bodies.Count; i++)
-        //{
-        //    Vector2 segment = (head.transform.position + origin.transform.position) / bodies.Count;
-        //    bodies[i].transform.position = new Vector2(segment.x, segment.y) * i;
-        //}
-        //
     }
 
     private void OnGUI()

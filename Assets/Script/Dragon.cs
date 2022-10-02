@@ -11,6 +11,8 @@ public class Dragon : MonoBehaviour
     public float scrap = 10;
 
     public GameObject enemy;
+
+    PlayAudioSource audio;
     private void Awake()
     {
         MainInstance = this;
@@ -21,12 +23,13 @@ public class Dragon : MonoBehaviour
         MainInstance = null;
     }
 
-     readonly RaycastHit2D[] hits = new RaycastHit2D[10];
+    readonly RaycastHit2D[] hits = new RaycastHit2D[10];
     void Update()
     {
         //If the left mouse button is clicked.
         if (Input.GetMouseButtonDown(0))
         {
+           // PlayAudioSource.mainInstance.dragonBite.Play();
             //Get the mouse position on the screen and send a raycast into the game world from that position.
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             int hitCount = Physics2D.CircleCastNonAlloc(worldPoint, spellRadius, Vector2.zero, hits, Mathf.Infinity, layerMask: castMask);
