@@ -4,5 +4,24 @@ using UnityEngine;
 
 public class PlayAudioSource : MonoBehaviour
 {
-    [SerializeField] private AudioSource myAudioSource;
+    public static PlayAudioSource mainInstance = null;
+
+    public AudioSource dragonBite;
+    public AudioSource menuPause;
+    //public AudioSource myAudioSource;
+    //public AudioSource myAudioSource;
+    //public AudioSource myAudioSource;
+    public float volume = 1.0f;
+
+    public void Awake(){
+        mainInstance = this;
+
+    }
+
+    public void OnDestroy(){
+        mainInstance = null;
+
+    }
+
+
 }

@@ -45,11 +45,9 @@ public class LaneKeepingEnemy : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger");
         if (collision.CompareTag("Hoard"))
         {
-            //holdingScrap = true;
-            Debug.Log("Yes");
+            holdingScrap = true;
             Destroy(collision.gameObject);
         }
     }
