@@ -6,12 +6,19 @@ public class PlayAudioSource : MonoBehaviour
 {
     public static PlayAudioSource mainInstance = null;
 
+    //Music jingles
+    public AudioSource victoryMusic;
+    public AudioSource deafeatMusic;
+
+    //SFX
     public AudioSource dragonBite;
+    public AudioSource dragonDies;
+    public AudioSource dragonFire;
+    public AudioSource dragonFireExplode;
+    public AudioSource enemyDeath;
+    public AudioSource pickupScrap;
     public AudioSource menuPause;
-    //public AudioSource myAudioSource;
-    //public AudioSource myAudioSource;
-    //public AudioSource myAudioSource;
-    public float volume = 1.0f;
+    public AudioSource towerElectricity;
 
     public void Awake(){
         mainInstance = this;

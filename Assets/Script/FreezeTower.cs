@@ -9,6 +9,15 @@ public class FreezeTower : MonoBehaviour
     public bool isFreezing = false;
     public float freezedSpeed = 0f;
 
+    public Animator animator;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            animator.SetTrigger("AttackTrigger");
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject targetHit = collision.gameObject;
@@ -16,6 +25,9 @@ public class FreezeTower : MonoBehaviour
         {
 
             print(targetHit.name + " has entered freeze zone");
+
+            animator.SetTrigger("AttackTrigger");
+
             float enemySpeed = targetHit.GetComponent<Enemy>().speed;
 
             StartCoroutine(StartCountdown(freezeTime, enemySpeed));
