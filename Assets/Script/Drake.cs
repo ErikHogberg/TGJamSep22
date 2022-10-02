@@ -86,13 +86,15 @@ public class Drake : MonoBehaviour
         neck.spline.Clear();
 
         int offset = 0;
+        Vector2 lastValid = Vector2.zero;
         for (int i = 0; i < neckPoints.Count; i++)
         {
-            if (i > 0 && neckPoints[i] == neckPoints[i - 1])
+            if (i > 0 && Vector2.Distance(neckPoints[i], lastValid) < .1f)
             {
                 offset++;
                 continue;
             }
+            lastValid = neckPoints[i];
             neck.spline.InsertPointAt(i - offset, neckPoints[i]);
             neck.spline.SetTangentMode(i - offset, ShapeTangentMode.Continuous);
         }
