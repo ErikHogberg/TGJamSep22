@@ -9,10 +9,15 @@ public class TrickyEnemy : Enemy
 
     private void Start()
     {
-        for(int i = 0; i < 4; i++)
+        points = new List<Vector2>();
+
+        for(int i = 0; i < 1000; i++)
         {
             points.Add(new Vector2(Random.Range(-25f, 25f), Random.Range(-13f, 13f)));
         }
+
+        alive = true;
+        Debug.Log(points[0]);
 
         //points.Add(dragon.transform.position);
     }
@@ -24,6 +29,12 @@ public class TrickyEnemy : Enemy
         if (Vector2.Distance(transform.position, points[targetPoint]) < 0.5f)
         {
             targetPoint++;
+            Debug.Log(points[targetPoint]);
+
+            if(targetPoint == points.Count)
+            {
+                holdingScrap = true;
+            }
         }
     }
 
