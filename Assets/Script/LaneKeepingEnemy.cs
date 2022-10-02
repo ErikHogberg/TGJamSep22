@@ -5,38 +5,42 @@ using UnityEngine.U2D;
 
 public class LaneKeepingEnemy : Enemy
 {
-    public SpriteShapeController Lane;
+    // public SpriteShapeController Lane;
+    public LanePoints Lane;
+    int laneCounter = 0;
 
-    public float MaxLaneDistance = 10f;
+    public float MaxLaneDistance = .1f;
 
     void FollowLane()
     {
-        Vector2 currentPos = transform.position;
-        Vector2 closestPosOnLane = Lane.edgeCollider.ClosestPoint(currentPos);
-        if (Vector2.Distance(currentPos, closestPosOnLane) > MaxLaneDistance)
-        {
-            // strayed too far, move towards lane road
-            transform.position = (currentPos - closestPosOnLane).normalized * speed * Time.deltaTime;
-        }
-        else
-        {
-            // close enough to lane road, move towards dragon
-            // TODO: move along lane instead of going directly towards dragon
-            if (Dragon.MainInstance)
-                transform.position = (currentPos - (Vector2)Dragon.MainInstance.transform.position).normalized * speed * Time.deltaTime;
+        if (!alive || !Lane) return;
 
+        Vector2 currentPos = transform.position;
+        Vector2 closestPosOnLane = Lane.GetWorldPoint(laneCounter);//Lane.edgeCollider.ClosestPoint(currentPos);
+        if (Vector2.Distance(currentPos, closestPosOnLane) < MaxLaneDistance)
+        {
+            laneCounter++;
+            if (laneCounter >= Lane.points.Count)
+            {
+                alive = false;
+                return;
+            }
         }
+        // transform.position = ( closestPosOnLane - currentPos).normalized * speed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, closestPosOnLane, speed * Time.deltaTime);
+        // if (Dragon.MainInstance)
+        //     transform.position = (currentPos - (Vector2)Dragon.MainInstance.transform.position).normalized * speed * Time.deltaTime;
     }
 
     public override void MoveTowardsDragon()
     {
-        //FollowLane();
-        transform.position += (dragon.transform.position - transform.position).normalized * speed * Time.deltaTime;
+        FollowLane();
+        // transform.position += (dragon.transform.position - transform.position).normalized * speed * Time.deltaTime;
     }
 
     public override void MoveTowardsExit()
     {
-        //FollowLane();
+        FollowLane();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
