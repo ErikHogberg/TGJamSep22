@@ -65,6 +65,7 @@ MonoBehaviour:
   freezeTime: 2
   isFreezing: 0
   freezedSpeed: 0
+  animator: {fileID: 3381779241207325595}
 --- !u!1 &8610541305548395857
 GameObject:
   m_ObjectHideFlags: 0
