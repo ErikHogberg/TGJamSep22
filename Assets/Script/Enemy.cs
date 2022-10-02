@@ -87,7 +87,7 @@ public abstract class Enemy : MonoBehaviour
         if (!this.alive)
         {
             Dragon.MainInstance.scrap += this.reward;
-            if (treasurePrefab)
+            if (treasurePrefab && holdingScrap)
                 Instantiate(treasurePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
