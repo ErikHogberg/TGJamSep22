@@ -347,6 +347,7 @@ MonoBehaviour:
   - {x: 2.8467913, y: -10.563667}
   - {x: 6.6683536, y: -7.860611}
   - {x: 9.713175, y: -10.470458}
+  edgeCollider: {fileID: 0}
 --- !u!4 &334896165
 Transform:
   m_ObjectHideFlags: 0
@@ -771,6 +772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 686816514}
   - component: {fileID: 686816513}
+  - component: {fileID: 686816515}
   m_Layer: 0
   m_Name: Lane1
   m_TagString: Untagged
@@ -796,6 +798,7 @@ MonoBehaviour:
   - {x: -6.7040153, y: -19.046291}
   - {x: 2.2071223, y: -17.976925}
   - {x: 11.9123745, y: -14.743187}
+  edgeCollider: {fileID: 686816515}
 --- !u!4 &686816514
 Transform:
   m_ObjectHideFlags: 0
@@ -811,6 +814,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &686816515
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686816512}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1033580301
 GameObject:
   m_ObjectHideFlags: 0
