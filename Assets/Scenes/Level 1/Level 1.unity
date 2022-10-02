@@ -228,6 +228,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &101622190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9201207463983129779, guid: 15cec8ba4f4c8e5418b0a04b591facc6, type: 3}
+  m_PrefabInstance: {fileID: 9201207464572592168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbac1c0f0f7a7554bb3340400c681961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &163238673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12524,6 +12535,72 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &428178295
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 695812310}
+    m_Modifications:
+    - target: {fileID: 7513020841946284324, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_Name
+      value: OldComputerEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28.456251
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.1378574
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284326, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513020841946284327, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+      propertyPath: Lane
+      value: 
+      objectReference: {fileID: 101622190}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff71a06af48469440a79be04b9c4fd1b, type: 3}
+--- !u!4 &695812310 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9201207463059454590, guid: 15cec8ba4f4c8e5418b0a04b591facc6, type: 3}
+  m_PrefabInstance: {fileID: 9201207464572592168}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &739072471
 GameObject:
   m_ObjectHideFlags: 0
@@ -12755,6 +12832,31 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &971971717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4578013964354550233, guid: 15cec8ba4f4c8e5418b0a04b591facc6, type: 3}
+  m_PrefabInstance: {fileID: 9201207464572592168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &971971720
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971971717}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae5dae2c9c6d8e64d81a1f076e01f5ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2138300218
 GameObject:
   m_ObjectHideFlags: 0
@@ -12949,7 +13051,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2602263170737223925, guid: 15cec8ba4f4c8e5418b0a04b591facc6, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9201207463059454589, guid: 15cec8ba4f4c8e5418b0a04b591facc6, type: 3}
       propertyPath: m_Name

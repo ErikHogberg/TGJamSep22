@@ -18,7 +18,7 @@ public class Drake : MonoBehaviour
     Vector2 point = Vector3.zero;
     Vector2 mousePos = Vector2.zero;
 
-
+    [Space]
     [Min(2)]
     public int NeckResolusion = 5;
     public Vector2 NeckGravity = Vector2.up;
