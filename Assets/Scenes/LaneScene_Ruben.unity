@@ -314,20 +314,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1930033758199326149, guid: 368025a291c49f843ac87190cbdfba03, type: 3}
-      propertyPath: Pan2D
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1930033758199326149, guid: 368025a291c49f843ac87190cbdfba03, type: 3}
-      propertyPath: m_Volume
-      value: 0.387
-      objectReference: {fileID: 0}
-    - target: {fileID: 1930033758199326149, guid: 368025a291c49f843ac87190cbdfba03, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 716862357102628686, guid: 368025a291c49f843ac87190cbdfba03, type: 3}
+      propertyPath: towerElectricity
+      value: 
+      objectReference: {fileID: 585834817}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 368025a291c49f843ac87190cbdfba03, type: 3}
+--- !u!82 &585834817 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2427373966150514065, guid: 368025a291c49f843ac87190cbdfba03, type: 3}
+  m_PrefabInstance: {fileID: 585834816}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &867806129
 GameObject:
   m_ObjectHideFlags: 0

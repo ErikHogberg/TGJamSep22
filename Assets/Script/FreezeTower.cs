@@ -23,6 +23,7 @@ public class FreezeTower : MonoBehaviour
         GameObject targetHit = collision.gameObject;
         if (targetHit.tag == "Enemy" || !isFreezing)
         {
+            PlayAudioSource.mainInstance.towerElectricity.Play();
 
             print(targetHit.name + " has entered freeze zone");
 
