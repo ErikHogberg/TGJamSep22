@@ -6,9 +6,9 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager MainInstance = null;
 
-
     public int StartScore;
     public SetTextHelper ScoreText;
+    
     private int score;
     public int Score
     {
@@ -19,8 +19,6 @@ public class ResourceManager : MonoBehaviour
             ScoreText.SetText(score);
         }
     }
-
-
 
     void Awake()
     {
